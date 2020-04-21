@@ -1,0 +1,46 @@
+2020-04-20 08:40:34 DEBUG logging:45 - Logging Provider: org.jboss.logging.Log4jLoggerProvider
+2020-04-20 08:40:34 INFO  threads:52 - JBoss Threads version 2.3.0.Beta2
+2020-04-20 08:40:36 INFO  remoting:99 - JBoss Remoting version 5.0.8.Final
+2020-04-20 08:40:37 INFO  xnio:95 - XNIO version 3.6.5.Final
+2020-04-20 08:40:37 INFO  nio:59 - XNIO NIO Implementation Version 3.6.5.Final
+2020-04-20 08:40:37 DEBUG nio:444 - Started channel thread 'XNIO-1 Accept', selector sun.nio.ch.WindowsSelectorImpl@28fb2ce8
+2020-04-20 08:40:37 DEBUG nio:444 - Started channel thread 'XNIO-1 I/O-1', selector sun.nio.ch.WindowsSelectorImpl@45248fc4
+2020-04-20 08:40:37 INFO  security:57 - ELY00001: WildFly Elytron version 1.8.0.Final
+2020-04-20 08:40:50 DEBUG VersionedConectionFactory:176 - Available version (Versions  0x00 0x01)
+2020-04-20 08:40:50 DEBUG VersionedConectionFactory:182 - Calling a stable server
+2020-04-20 08:40:50 DEBUG VersionedConectionFactory:134 - Selecting version 0x00 to receive full version list.
+2020-04-20 08:40:50 DEBUG VersionedConectionFactory:176 - Available version (Versions  0x01 0x02)
+2020-04-20 08:40:50 DEBUG VersionedConectionFactory:182 - Calling a stable server
+2020-04-20 08:40:50 DEBUG VersionedConectionFactory:197 - Server version 3.0.4.Final
+2020-04-20 08:40:52 DEBUG protocol:80 - cancelled operation (782959914) attachment: (org.jboss.as.controller.client.impl.AbstractModelControllerClient$OperationExecutionContext@582e9152) handler: org.jboss.as.protocol.mgmt.ManagementChannelHandler@7a31ca20.
+2020-04-20 08:40:52 DEBUG protocol:80 - cancelled operation (1426415943) attachment: (org.jboss.as.controller.client.impl.AbstractModelControllerClient$OperationExecutionContext@349c4d1c) handler: org.jboss.as.protocol.mgmt.ManagementChannelHandler@7a31ca20.
+2020-04-20 08:40:52 DEBUG protocol:80 - cancelled operation (100593714) attachment: (org.jboss.as.controller.client.impl.AbstractModelControllerClient$OperationExecutionContext@60b5e80d) handler: org.jboss.as.protocol.mgmt.ManagementChannelHandler@7a31ca20.
+2020-04-20 21:43:27 DEBUG logging:53 - Logging Provider: org.jboss.logging.Log4jLoggerProvider
+2020-04-20 21:43:27 INFO  threads:52 - JBoss Threads version 2.3.0.Beta2
+2020-04-20 21:43:29 INFO  remoting:99 - JBoss Remoting version 5.0.8.Final
+2020-04-20 21:43:29 INFO  xnio:95 - XNIO version 3.6.5.Final
+2020-04-20 21:43:29 INFO  nio:59 - XNIO NIO Implementation Version 3.6.5.Final
+2020-04-20 21:43:29 DEBUG nio:444 - Started channel thread 'XNIO-1 Accept', selector sun.nio.ch.WindowsSelectorImpl@71ee13a8
+2020-04-20 21:43:29 DEBUG nio:444 - Started channel thread 'XNIO-1 I/O-1', selector sun.nio.ch.WindowsSelectorImpl@5a246606
+2020-04-20 21:43:29 INFO  security:57 - ELY00001: WildFly Elytron version 1.8.0.Final
+2020-04-20 21:43:40 WARN  ArchiveDeployer:137 - Failed to undeploy 756e0318-faf2-41b7-a940-3a275a84bc95.ear: {"WFLYCTL0062: Composite operation failed and was rolled back. Steps that failed:" => {"Operation step-1" => "WFLYCTL0216: Management resource '[(\"deployment\" => \"756e0318-faf2-41b7-a940-3a275a84bc95.ear\")]' not found"}}
+2020-04-20 21:43:40 DEBUG protocol:80 - cancelled operation (1108393171) attachment: (org.jboss.as.controller.client.impl.AbstractModelControllerClient$OperationExecutionContext@359ff4d9) handler: org.jboss.as.protocol.mgmt.ManagementChannelHandler@7a22a3c2.
+2020-04-20 21:43:40 DEBUG protocol:80 - cancelled operation (2043583356) attachment: (org.jboss.as.controller.client.impl.AbstractModelControllerClient$OperationExecutionContext@f4cfd90) handler: org.jboss.as.protocol.mgmt.ManagementChannelHandler@7a22a3c2.
+2020-04-20 21:43:40 DEBUG protocol:80 - cancelled operation (863995780) attachment: (org.jboss.as.controller.client.impl.AbstractModelControllerClient$OperationExecutionContext@7ae9a33a) handler: org.jboss.as.protocol.mgmt.ManagementChannelHandler@7a22a3c2.
+2020-04-21 18:12:11 DEBUG logging:45 - Logging Provider: org.jboss.logging.Log4jLoggerProvider
+2020-04-21 18:12:11 INFO  threads:52 - JBoss Threads version 2.3.0.Beta2
+2020-04-21 18:12:13 INFO  remoting:99 - JBoss Remoting version 5.0.8.Final
+2020-04-21 18:12:13 INFO  xnio:95 - XNIO version 3.6.5.Final
+2020-04-21 18:12:13 INFO  nio:59 - XNIO NIO Implementation Version 3.6.5.Final
+2020-04-21 18:12:13 DEBUG nio:444 - Started channel thread 'XNIO-1 Accept', selector sun.nio.ch.WindowsSelectorImpl@45248fc4
+2020-04-21 18:12:13 DEBUG nio:444 - Started channel thread 'XNIO-1 I/O-1', selector sun.nio.ch.WindowsSelectorImpl@6dcaab73
+2020-04-21 18:12:13 INFO  security:57 - ELY00001: WildFly Elytron version 1.8.0.Final
+2020-04-21 18:12:26 DEBUG VersionedConectionFactory:176 - Available version (Versions  0x00 0x01)
+2020-04-21 18:12:26 DEBUG VersionedConectionFactory:182 - Calling a stable server
+2020-04-21 18:12:26 DEBUG VersionedConectionFactory:134 - Selecting version 0x00 to receive full version list.
+2020-04-21 18:12:26 DEBUG VersionedConectionFactory:176 - Available version (Versions  0x01 0x02)
+2020-04-21 18:12:26 DEBUG VersionedConectionFactory:182 - Calling a stable server
+2020-04-21 18:12:26 DEBUG VersionedConectionFactory:197 - Server version 3.0.4.Final
+2020-04-21 18:12:29 DEBUG protocol:80 - cancelled operation (122617856) attachment: (org.jboss.as.controller.client.impl.AbstractModelControllerClient$OperationExecutionContext@5ec88f9e) handler: org.jboss.as.protocol.mgmt.ManagementChannelHandler@7a04f730.
+2020-04-21 18:12:29 DEBUG protocol:80 - cancelled operation (1075877202) attachment: (org.jboss.as.controller.client.impl.AbstractModelControllerClient$OperationExecutionContext@3b11620a) handler: org.jboss.as.protocol.mgmt.ManagementChannelHandler@7a04f730.
+2020-04-21 18:12:29 DEBUG protocol:80 - cancelled operation (1696907602) attachment: (org.jboss.as.controller.client.impl.AbstractModelControllerClient$OperationExecutionContext@7a31ca20) handler: org.jboss.as.protocol.mgmt.ManagementChannelHandler@7a04f730.

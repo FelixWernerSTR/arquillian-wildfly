@@ -1,0 +1,13 @@
+<assembly>
+  <id>inspector</id>
+  <formats>
+    <format>ear</format>
+  </formats>
+  <includeBaseDirectory>false</includeBaseDirectory>
+    <files>
+    <file>
+      <source>${project.build.directory}/deployment-inspector-ejb.jar</source>
+      <outputDirectory>./</outputDirectory>
+    </file>
+  </files>
+</assembly>

@@ -1,0 +1,188 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<groupId>de.fewe.arquillian.wildfly</groupId>
+	<artifactId>arquillian-wildfly</artifactId>
+	<version>20.0.2-SNAPSHOT</version>
+	<packaging>jar</packaging>
+
+	<name>arquillian-wildfly</name>
+	<url>http://maven.apache.org</url>
+
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<jboss.home>G:/devel/wildfly-19.0.0.Final</jboss.home>
+		<jboss.containerId>wildfly19x</jboss.containerId>
+		<!-- jboss.home>G:/devel/wildfly-14.0.1.Final</jboss.home>
+		<jboss.containerId>wildfly14x</jboss.containerId-->
+	</properties>
+
+
+
+	<!-- ======================================================================== 
+		Managed Dependencies ======================================================================== -->
+
+	<dependencyManagement>
+		<dependencies>
+			<dependency>
+				<groupId>org.jboss.arquillian</groupId>
+				<artifactId>arquillian-bom</artifactId>
+				<version>1.6.0.Final</version>
+				<scope>import</scope>
+				<type>pom</type>
+			</dependency>
+		</dependencies>
+	</dependencyManagement>
+
+	<dependencies>
+
+		<dependency>
+			<groupId>org.jboss.logging</groupId>
+			<artifactId>jboss-logging</artifactId>
+			<version>3.3.2.Final</version>
+		</dependency>
+
+		<dependency>
+			<groupId>log4j</groupId>
+			<artifactId>log4j</artifactId>
+			<version>1.2.17</version>
+		</dependency>
+
+<!-- 		<dependency>
+			<groupId>org.jboss.spec.javax.ejb</groupId>
+			<artifactId>jboss-ejb-api_3.1_spec</artifactId>
+			<version>1.0.2.Final</version>
+			<scope>provided</scope>
+		</dependency> -->
+		
+		<dependency>
+		    <groupId>org.jboss.spec.javax.ejb</groupId>
+		    <artifactId>jboss-ejb-api_3.2_spec</artifactId>
+		    <version>2.0.0.Final</version>
+		    <scope>provided</scope>
+		</dependency>
+
+		<!-- for testing with arquillian BEGIN: -->
+		<dependency>
+			<groupId>org.wildfly.arquillian</groupId>
+			<artifactId>wildfly-arquillian-container-managed</artifactId>
+			<version>2.2.0.Final</version>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.jboss.shrinkwrap.resolver</groupId>
+			<artifactId>shrinkwrap-resolver-depchain</artifactId>
+			<type>pom</type>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.jboss.shrinkwrap.resolver</groupId>
+			<artifactId>shrinkwrap-resolver-bom</artifactId>
+			<version>3.1.4</version>
+			<scope>import</scope>
+			<type>pom</type>
+		</dependency>
+		<dependency>
+			<groupId>org.jboss.arquillian.junit</groupId>
+			<artifactId>arquillian-junit-container</artifactId>
+			<scope>test</scope>
+		</dependency>
+		<!-- for testing with arquillian END -->
+
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>4.12</version>
+			<scope>test</scope>
+		</dependency>
+	</dependencies>
+
+
+	<build>
+
+		<plugins>
+			<plugin>
+				<artifactId>maven-resources-plugin</artifactId>
+				<executions>
+					<execution>
+						<id>copy-jboss-prifile-configuration</id>
+						<phase>process-test-classes</phase>
+						<goals>
+							<goal>copy-resources</goal>
+						</goals>
+						<configuration>
+							<outputDirectory>target/${jboss.containerId}</outputDirectory>
+							<resources>
+								<resource>
+									<directory>${jboss.home}/standalone</directory>
+									<filtering>false</filtering>
+								</resource>
+							</resources>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+
+			<plugin>
+				<artifactId>maven-assembly-plugin</artifactId>
+				<executions>
+
+					<execution>
+						<id>deployment-inspector-ejb-jar</id>
+						<phase>package</phase>
+						<goals>
+							<goal>single</goal>
+						</goals>
+						<configuration>
+							<outputDirectory>${project.build.directory}</outputDirectory>
+							<finalName>deployment</finalName>
+							<appendAssemblyId>true</appendAssemblyId>
+							<descriptors>
+								<descriptor>src/main/resources/inspector-ejb-assembly.xml</descriptor>
+							</descriptors>
+						</configuration>
+					</execution>
+
+					<execution>
+						<id>deployment-inspector-client-jar</id>
+						<phase>package</phase>
+						<goals>
+							<goal>single</goal>
+						</goals>
+						<configuration>
+							<outputDirectory>${project.build.directory}</outputDirectory>
+							<finalName>${project.artifactId}-${project.version}</finalName>
+							<appendAssemblyId>true</appendAssemblyId>
+							<descriptors>
+								<descriptor>src/main/resources/inspector-client-assembly.xml</descriptor>
+							</descriptors>
+						</configuration>
+					</execution>
+
+					<execution>
+						<id>inspector-ear</id>
+						<phase>package</phase>
+						<goals>
+							<goal>single</goal>
+						</goals>
+						<configuration>
+							<outputDirectory>${project.build.directory}</outputDirectory>
+							<finalName>${project.artifactId}</finalName>
+							<appendAssemblyId>true</appendAssemblyId>
+							<archiverConfig>
+								<appxml>src/main/resources/application.xml</appxml>
+							</archiverConfig>
+							<descriptors>
+								<descriptor>src/main/resources/inspector-ear-assembly.xml</descriptor>
+							</descriptors>
+						</configuration>
+					</execution>
+				</executions>
+
+			</plugin>
+		</plugins>
+
+	</build>
+</project>

@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<arquillian xmlns="http://www.jboss.org/arquillian-1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xsi:schemaLocation="http://www.jboss.org/arquillian-1.0 http://jboss.org/schema/arquillian/arquillian-1.0.xsd">
+	
+	<!-- ATTENTION! After changing this xml, you should cleanup and build your project to make it active under eclipse-->  
+      <container qualifier="wildfly19x-managed" default="true"> 
+        <defaultProtocol type="Servlet 3.0" />
+        <configuration>
+            <property name="jbossHome">G:/devel/wildfly-19.0.0.Final</property>
+            <property name="serverConfig">standalone-full.xml</property>
+            <property name="outputToConsole">true</property>
+            <property name="allowConnectingToRunningServer">true</property>
+            <property name="startupTimeoutInSeconds">30</property>
+            <property name="javaVmArguments">-Djboss.server.base.dir=target/wildfly19x -Djboss.socket.binding.port-offset=0</property>
+            <property name="managementPort">9990</property>
+            <property name="username">admin</property>
+			<property name="password">password1#</property>
+            <!-- Debugging in Eclipse: start JUnit-Test in Debug Mode. 
+            The console will wait till you make next step: Start Debug Remote Application 
+            from Eclipse to Portadress= 8787, see below(activate this javaVMArguments for it, 
+            deactivate previous javaVmArguments-property)! Wait at your break points ...-->
+            <!-- property name="javaVmArguments">-Djboss.server.base.dir=target/wildfly14x -Djboss.socket.binding.port-offset=101 -Xmx512m -XX:MaxPermSize=128m -Xrunjdwp:transport=dt_socket,address=8787,server=y,suspend=y</property-->
+        </configuration>
+    </container>
+   
+   <container qualifier="wildfly14x-managed"> 
+        <defaultProtocol type="Servlet 3.0" />
+        <configuration>
+            <property name="jbossHome">D:/devel/wildfly-14.0.1.Final</property>
+            <property name="serverConfig">standalone-full.xml</property>
+            <property name="outputToConsole">true</property>
+            <property name="allowConnectingToRunningServer">true</property>
+            <property name="startupTimeoutInSeconds">30</property>
+            <property name="javaVmArguments">-Djboss.server.base.dir=target/wildfly14x -Djboss.socket.binding.port-offset=0</property>
+            <property name="managementPort">9990</property>
+            <property name="username">admin</property>
+			<property name="password">password1#</property>
+            <!-- Debugging in Eclipse: start JUnit-Test in Debug Mode. 
+            The console will wait till you make next step: Start Debug Remote Application 
+            from Eclipse to Portadress= 8787, see below(activate this javaVMArguments for it, 
+            deactivate previous javaVmArguments-property)! Wait at your break points ...-->
+            <!-- property name="javaVmArguments">-Djboss.server.base.dir=target/wildfly14x -Djboss.socket.binding.port-offset=101 -Xmx512m -XX:MaxPermSize=128m -Xrunjdwp:transport=dt_socket,address=8787,server=y,suspend=y</property-->
+        </configuration>
+    </container>
+    
+   <container qualifier="jbossas-managed"> <!-- to test against jboss75x execute JUnitTest with JVM option -Darquillian.launch=jbossas-managed -->
+        <defaultProtocol type="Servlet 3.0" />
+        <configuration>
+            <property name="jbossHome">G:/devel/jboss-eap-6.4</property>
+            <property name="serverConfig">standalone-full.xml</property>
+            <property name="outputToConsole">true</property>
+            <property name="allowConnectingToRunningServer">true</property>
+            <property name="startupTimeoutInSeconds">30</property>
+            <property name="javaVmArguments">-Djboss.server.base.dir=target/jboss75x -Djboss.socket.binding.port-offset=0</property>
+            <property name="managementPort">9999</property>
+            <!-- Debugging in Eclipse: start JUnit-Test in Debug Mode. 
+            The console will wait till you make next step: Start Debug Remote Application 
+            from Eclipse to Portadress= 8787, see below(activate this javaVMArguments for it, 
+            deactivate previous javaVmArguments-property)! Wait at your break points ...-->
+            <!-- property name="javaVmArguments">-Djboss.server.base.dir=target/jboss75x -Djboss.socket.binding.port-offset=101 -Xmx512m -XX:MaxPermSize=128m -Xrunjdwp:transport=dt_socket,address=8787,server=y,suspend=y</property-->
+        </configuration>
+    </container>
+    
+    <container qualifier="jbossas-remote">
+        <configuration>
+            <property name="providerUrl">jnp://localhost:1099</property>
+        </configuration>
+        <protocol type="Servlet 3.0">
+            <property name="host">localhost</property>
+            <property name="port">8080</property>
+        </protocol>
+    </container>
+    
+    <container qualifier="was-8.5-remote"> <!-- to test against websphere execute JUnitTest with JVM option -Darquillian.launch=was-8.5-remote -->
+        <configuration>
+            <property name="remoteServerAddress">localhost</property>
+            <property name="remoteServerSoapPort">8880</property>
+            <property name="securityEnabled">false</property>
+            <property name="username">admin</property>
+           	<property name="password">admin</property>
+ 			<!-- property name="sslTrustStore">C:/IBM/WebSphere/AppServer/profiles/AppSrv01/etc/DummyClientTrustFile.jks</property>
+			<property name="sslTrustStorePassword">WebAS</property> -->
+        </configuration>
+    </container>
+    
+    <container qualifier="was-9-remote"> <!-- to test against websphere execute JUnitTest with JVM option -Darquillian.launch=was-9-remote -->
+        <configuration>
+            <property name="remoteServerAddress">localhost</property>
+            <property name="remoteServerSoapPort">8880</property>
+            <property name="securityEnabled">false</property>
+            <property name="username">admin</property>
+           	<property name="password">admin</property>
+ 			<!--property name="sslTrustStore">C:/IBM/WebSphere/AppServer/profiles/AppSrv01/etc/DummyClientTrustFile.jks</property>
+			<property name="sslTrustStorePassword">WebAS</property> -->
+        </configuration>
+    </container>
+    
+     <engine>
+        <property name="deploymentExportPath">target/deployments</property>
+    </engine>
+    
+</arquillian>

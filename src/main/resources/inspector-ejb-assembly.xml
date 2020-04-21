@@ -1,0 +1,23 @@
+<assembly>
+  <id>inspector-ejb</id>
+  <formats>
+    <format>jar</format>
+  </formats>
+  <includeBaseDirectory>false</includeBaseDirectory>
+  <fileSets>
+    <fileSet>
+      <directory>target/classes</directory>
+      <outputDirectory>./</outputDirectory>
+      <includes>
+        <include>de/fewe/arquillian/**</include>
+      </includes>      
+    </fileSet>
+    <fileSet>
+      <directory>src/main/java</directory>
+      <outputDirectory>./</outputDirectory>
+      <includes>
+        <include>de/fewe/arquillian/**</include>
+      </includes>      
+    </fileSet>
+  </fileSets>
+</assembly>
